@@ -1,0 +1,33 @@
+doctype html
+html(lang="ja")
+	head
+		include _head.pug
+		link(rel="stylesheet", href="css/biography.css")
+		title Philosophia｜Amane Portfolio site
+	body
+		main
+			include _nav.pug
+			div.bio__wrap
+				div.bio__sub
+					div.news__wrap
+						span.news__wrap--ttl news
+					div.bio__sub--order
+						p Oldest
+				ul.bio__thumbnail#setThumb
+				footer
+					include _shereIcon.pug
+					small &copy; 2021 Amane.
+		div.bio__modal#hiddenModal
+			div.bio__modal--back
+			div.prev.arrow
+				div.modal__arrow--prev
+			div.bio__modal--img
+				ul.imgList
+				div.imgInfo
+				div.circle
+			div.next.arrow
+				div.modal__arrow--next
+		include _shereIcon.pug
+		include _scrollTop.pug
+		include _foot.pug
+		script(src="js/biography.js")

@@ -1,0 +1,30 @@
+doctype html
+html(lang="ja")
+	head
+		include _head.pug
+		link(rel="stylesheet", href="css/index.css")
+		//- script(src="js/index_pre.js")
+		title Philosophia｜Amane Portfolio site
+	body
+		main
+			include _nav.pug
+			div.index__main
+				div.index__main--ttl
+					h1 Philosophia
+					p Amane Portfolio Site
+					video(autoplay muted)
+						source(src="img/logo.mp4",type="video/mp4")
+				ul.index__main--img
+					li#setMainImgList
+						img(src="img/main1.jpeg" alt="Philosophia")
+					li
+						img(src="img/main2.JPG" alt="Philosophia")
+					li
+						img(src="img/main3.jpg" alt="Philosophia")
+					li
+						img(src="https://live.staticflickr.com/65535/51304363183_a8e07d4d3c_k.jpg" alt="Philosophia")
+				div.news__wrap
+					p.news__wrap--ttl news
+		include _shereIcon.pug
+		include _foot.pug
+		script(src="js/index.js")

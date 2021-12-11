@@ -1,0 +1,66 @@
+$navWidth:80px;
+$contentsHeight:calc(100vh - 40px);
+$partsHoverColor:rgb(167, 167, 167);
+$baceColor:#eee;
+$accentColor:#666;
+
+@mixin contentsSet {
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translateX(-20px);
+	display: none;
+	opacity: 0;
+}
+
+@mixin backSet {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 1px;
+	height: 60px;
+	background-color: #777;
+	transition: 0.2s background-color;
+	left: 28px;
+	box-shadow: 0 0 10px #fff;
+}
+
+@mixin arrowSet1 {
+	position: relative;
+	height: 60px;
+	width: 60px;
+}
+
+@mixin arrowSet2 {
+	content: "";
+	display: block;
+	width: 1px;
+	height: 35px;
+	background-color: #777;
+	transition: 0.2s background-color;
+}
+
+@mixin iconFrameSet {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-color: transparent transparent transparent #999999;
+	border-width: 60px 0 60px 60px;
+}
+
+@mixin iconSet {
+	content: "";
+	width: 15px;
+	height: 15px;
+	margin: 7px 5px 7px 0;
+	display: inline-block;
+	background-size: contain;
+}
+
+@mixin gettingNavSet {
+	background: $partsHoverColor;
+	color: $accentColor;
+	fill: $accentColor;
+}

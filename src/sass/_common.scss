@@ -1,0 +1,461 @@
+/*-------------------------------
+全体設定ここから
+-------------------------------*/
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  background-color: $baceColor;
+  color: $accentColor;
+  font-family: sans-serif;
+}
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #626262;
+
+  &:hover,
+  &:active {
+    color: #999999;
+  }
+}
+
+::selection {
+  background: #e0e0e08e;
+  color: #8a8a8a;
+}
+
+::-moz-selection {
+  //firefox
+  background: #e0e0e0;
+  color: #8a8a8a;
+}
+
+@keyframes fadeIn {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+/*-------------------------------
+全体設定ここまで
+-------------------------------*/
+
+/*-------------------------------
+navここから
+-------------------------------*/
+nav {
+  font-family: "Rajdhani", sans-serif;
+  position: fixed;
+  top: 0;
+  z-index: 25;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: 0.2s color, 0.2s background;
+    font-size: 2rem;
+  }
+}
+.nav__link--icon {
+  transition: 0.2s background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+/*-------------------------------
+navここまで
+-------------------------------*/
+/*-------------------------------
+mainここから
+-------------------------------*/
+main > div {
+  position: relative;
+  transform: translateX(-30px);
+  opacity: 0;
+}
+#mainAdd {
+  opacity: 1;
+  transform: translateX(0);
+  transition: 0.3s;
+}
+/*-------------------------------
+mainここまで
+-------------------------------*/
+/*-------------------------------
+その他ここから
+-------------------------------*/
+.news__wrap {
+  font-size: 1.3rem;
+  .news__wrap--ttl {
+    font-size: 1.8rem;
+    font-family: "Rajdhani", sans-serif;
+    height: 26px;
+    border-radius: 13px;
+    background-color: #fff;
+    margin-right: 10px;
+  }
+  .newsTxt {
+    margin-top: 3px;
+  }
+}
+footer {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 481px) {
+  /* PCサイト */
+
+  body {
+    display: flex;
+  }
+
+  /*-------------------------------
+	navここから
+	-------------------------------*/
+  nav {
+    width: $navWidth;
+    height: 100vh;
+    left: 0;
+    li {
+      border-top: 1px solid rgb(134, 134, 134);
+
+      &:first-child {
+        border-top: none;
+      }
+
+      a {
+        background: $accentColor;
+        color: $baceColor;
+      }
+    }
+    .nav__link--txt {
+      a {
+        height: calc((100vh - 160px) / 2);
+        span {
+          display: inline-block;
+          transform: rotateZ(90deg);
+        }
+        &:hover {
+          background: $partsHoverColor;
+          color: $accentColor;
+        }
+      }
+    }
+  }
+
+  .nav__link--icon {
+    height: $navWidth;
+    width: $navWidth;
+    background: $accentColor;
+    a {
+      &:hover {
+        background: $partsHoverColor;
+        .svg_icon {
+          fill: $accentColor;
+        }
+      }
+    }
+    &:hover {
+      background: $partsHoverColor;
+      .svg_icon {
+        fill: $accentColor;
+      }
+    }
+    svg {
+      width: 30px;
+      .svg_icon {
+        fill: $baceColor;
+        transition: 0.2s fill;
+      }
+    }
+  }
+
+  .shereIcon {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 90px;
+    height: 150px;
+    z-index: 20;
+    li{
+      transform: translateY(0) translateX(-10px);
+      transform-origin:bottom;
+      width: 50px;
+      height: inherit;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin:0 auto;
+      visibility: hidden;
+      transition: 0.3s transform;
+      &:first-child{
+        svg{
+          transform: rotateZ(-40deg);
+        }
+      }
+      &:last-child{
+        svg{
+          transform: rotateZ(-70deg);
+        }
+      }
+    }
+    a {
+      width: inherit;
+      height: 50px;
+      margin-bottom: auto;
+      svg {
+        width: inherit;
+        fill: $accentColor;
+        transition: 0.2s;
+      }
+      &:hover {
+        svg {
+          fill: rgb(133, 133, 133);
+        }
+      }
+    }
+  }
+  #setShere1 {
+    transform: rotateZ(40deg);
+    visibility: visible;
+  }
+  #setShere2 {
+    transform: rotateZ(70deg);
+    visibility: visible;
+  }
+  #setSvg {
+    fill: $accentColor;
+  }
+
+  /*-------------------------------
+	navここまで
+	-------------------------------*/
+  /*-------------------------------
+	mainここから
+	-------------------------------*/
+  main {
+    display: flex;
+    width: 100vw;
+  }
+  main > div {
+    width: calc(100% - 80px);
+    margin-left: 80px;
+  }
+  /*-------------------------------
+	mainここまで
+	-------------------------------*/
+  /*-------------------------------
+	その他ここから
+	-------------------------------*/
+  /*-------- カーソルここから --------*/
+  .mouseCursor {
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(0, 0);
+    transition: 0.2s width ease-in-out, 0.2s height ease-in-out,
+      0.2s top ease-in-out, 0.2s left ease-in-out,
+      0.2s background-color ease-in-out, transform 0.2s;
+    pointer-events: none;
+    z-index: 100;
+    width: 16px;
+    height: 16px;
+    background-color: rgba(48, 48, 48, 0.5);
+    top: -10px;
+    left: -10px;
+  }
+
+  #linkHover {
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: -15px;
+    background-color: rgba(255, 167, 167, 0.5);
+    transition: 0.2s width ease-in-out, 0.2s height ease-in-out,
+      0.2s top ease-in-out, 0.2s left ease-in-out,
+      0.2s background-color ease-in-out, transform 0.1s;
+  }
+
+  /*-------- カーソルここまで --------*/
+  /*-------------------------------
+	その他ここまで
+	-------------------------------*/
+
+  .news__wrap {
+    display: flex;
+    align-items: center;
+    .news__wrap--ttl {
+      padding: 0 15px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  footer {
+    margin-top: 30px;
+    .shereIcon{
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* スマホサイト */
+
+  body{
+    >.shereIcon{
+      display: none;
+    }
+  }
+  main {
+    height: auto;
+  }
+
+  /*-------------------------------
+	navここから
+	-------------------------------*/
+  nav {
+    background: rgba(238, 238, 238, 0.8);
+    height: 50px;
+    right: 0;
+    z-index: 25;
+    width: 100vw;
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 15px;
+      li {
+        a {
+          color: $accentColor;
+        }
+        &:last-child{
+          display: none;
+        }
+      }
+    }
+    .nav__link--txt {
+      a {
+        padding: 0 10px;
+        span {
+          display: inline-block;
+        }
+        &:hover {
+          color: darken($accentColor, 20%);
+        }
+      }
+    }
+  }
+  .nav__link--icon {
+    height: 50px;
+    width: 50px;
+    a {
+      &:hover {
+        .svg_icon {
+          fill: darken($accentColor, 20%);
+        }
+      }
+    }
+    &:hover {
+      .svg_icon {
+        fill: darken($accentColor, 20%);
+      }
+    }
+    svg {
+      width: 20px;
+      .svg_icon {
+        fill: $accentColor;
+        transition: 0.2s fill;
+      }
+    }
+  }
+  .shereIcon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    li{
+      &:last-child{
+        a{
+          margin: 0;
+        }
+      }
+    }
+    a {
+      width: 40px;
+      height: 40px;
+      display: block;
+      margin-right: 10px;
+      svg {
+        width: inherit;
+        fill: $accentColor;
+        transition: 0.2s;
+      }
+      &:hover {
+        svg {
+          fill: rgb(133, 133, 133);
+        }
+      }
+    }
+  }
+  /*-------------------------------
+	navここまで
+	-------------------------------*/
+  /*-------------------------------
+	mainここから
+	-------------------------------*/
+  main > div {
+    width: 100vw;
+    margin: 0 0 auto 0;
+  }
+  /*-------------------------------
+	mainここまで
+	-------------------------------*/
+  .news__wrap {
+    .news__wrap--ttl {
+      padding: 0 20px;
+      vertical-align: middle;
+    }
+  }
+  footer {
+    margin-top: 30px;
+    small{
+      font-size: 1.2rem;
+    }
+  }
+}
